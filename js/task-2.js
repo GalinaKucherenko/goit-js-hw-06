@@ -12,7 +12,11 @@ class Storage {
     
     removeItem(itemToRemove) {
         const result = this.#items.indexOf(itemToRemove);
-        this.#items.splice(result, 1);
+        if (result !== -1) {
+            return this.#items.splice(result, 1);
+        } else {
+            return this.#items;
+        }
     }
 }
 
